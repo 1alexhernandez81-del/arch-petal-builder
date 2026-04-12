@@ -19,6 +19,8 @@ const eventTypes = [
 ];
 
 const ContactPage = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -28,10 +30,27 @@ const ContactPage = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder submit
-    alert("Thank you! We'll be in touch soon.");
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim() || null,
+        event_type: form.eventType,
+        event_date: form.eventDate || null,
+        message: form.message.trim(),
+      });
+      if (error) throw error;
+      toast({ title: "Inquiry Sent!", description: "Thank you! We'll be in touch within 24 hours." });
+      setForm({ name: "", email: "", phone: "", eventType: "", eventDate: "", message: "" });
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast({ title: "Something went wrong", description: "Please try again or email us directly.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass =
