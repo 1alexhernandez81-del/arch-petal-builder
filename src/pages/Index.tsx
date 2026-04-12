@@ -2,20 +2,25 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { TaglineWordmark } from "@/components/Logo";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 
-const services = [
-  { name: "Flower Walls", desc: "Lush, statement-making flower walls designed to transform any space into a botanical wonderland." },
-  { name: "Floral Arches", desc: "Stunning arched installations that frame your most important moments with natural beauty." },
-  { name: "Balloon Backdrops", desc: "Modern, sculptural balloon installations crafted with an elevated aesthetic." },
-  { name: "Draped Backdrops", desc: "Flowing fabric installations that add softness, movement, and romance to any event." },
-  { name: "Custom Event Styling", desc: "Bespoke styling packages tailored to your unique vision and celebration." },
-  { name: "Full Event Design", desc: "Comprehensive design direction from concept to installation for a cohesive experience." },
-];
+import heroImg from "@/assets/hero-flower-wall.jpg";
+import flowerWallImg from "@/assets/service-flower-wall.jpg";
+import floralArchImg from "@/assets/service-floral-arch.jpg";
+import balloonImg from "@/assets/service-balloon.jpg";
+import drapedImg from "@/assets/service-draped.jpg";
+import customStylingImg from "@/assets/service-custom-styling.jpg";
+import fullDesignImg from "@/assets/service-full-design.jpg";
 
-const placeholderColors = ["brand-blush", "brand-sage", "brand-beige", "brand-dusty-rose", "brand-champagne", "brand-taupe"];
+const services = [
+  { name: "Flower Walls", desc: "Lush, statement-making flower walls designed to transform any space into a botanical wonderland.", img: flowerWallImg },
+  { name: "Floral Arches", desc: "Stunning arched installations that frame your most important moments with natural beauty.", img: floralArchImg },
+  { name: "Balloon Backdrops", desc: "Modern, sculptural balloon installations crafted with an elevated aesthetic.", img: balloonImg },
+  { name: "Draped Backdrops", desc: "Flowing fabric installations that add softness, movement, and romance to any event.", img: drapedImg },
+  { name: "Custom Event Styling", desc: "Bespoke styling packages tailored to your unique vision and celebration.", img: customStylingImg },
+  { name: "Full Event Design", desc: "Comprehensive design direction from concept to installation for a cohesive experience.", img: fullDesignImg },
+];
 
 const Index = () => (
   <div className="min-h-screen">
@@ -28,11 +33,12 @@ const Index = () => (
           <TaglineWordmark className="w-full max-w-md mx-auto mb-12" />
         </ScrollReveal>
         <ScrollReveal>
-          <ImagePlaceholder
-            label="Hero image — flower wall installation"
-            color="brand-beige"
-            aspectRatio="aspect-[16/9]"
-            className="max-w-3xl mx-auto"
+          <img
+            src={heroImg}
+            alt="Luxurious white and blush flower wall installation at an elegant event"
+            width={1920}
+            height={1080}
+            className="w-full max-w-3xl mx-auto object-cover"
           />
         </ScrollReveal>
       </div>
@@ -47,14 +53,17 @@ const Index = () => (
           </h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {services.map((s, i) => (
+          {services.map((s) => (
             <ScrollReveal key={s.name}>
               <div className="group cursor-pointer border border-transparent hover:border-brand-champagne transition-all duration-500">
-                <ImagePlaceholder
-                  label={`${s.name} photo`}
-                  color={placeholderColors[i]}
-                  aspectRatio="aspect-[4/3]"
-                />
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="font-heading text-xl md:text-2xl tracking-[2px] text-brand-onyx mb-2">{s.name}</h3>
                   <p className="font-body font-light text-sm text-muted-foreground leading-relaxed">{s.desc}</p>

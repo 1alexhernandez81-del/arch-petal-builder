@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import ScrollReveal from "@/components/ScrollReveal";
+
+import founderImg from "@/assets/founder-portrait.jpg";
 
 const values = [
   { title: "Elevated Design", desc: "Every detail is intentionally curated to create an experience that feels luxurious, polished, and uniquely yours." },
@@ -21,11 +22,12 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Founder */}
     <section className="bg-white py-20 md:py-28 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
         <ScrollReveal>
-          <ImagePlaceholder label="Jasmine Hernandez — portrait photo" color="brand-blush" aspectRatio="aspect-[3/4]" />
+          <div className="aspect-[3/4] overflow-hidden">
+            <img src={founderImg} alt="Jasmine Hernandez, Founder & Creative Director" className="w-full h-full object-cover" />
+          </div>
         </ScrollReveal>
         <ScrollReveal>
           <div>
@@ -33,25 +35,16 @@ const AboutPage = () => (
             <p className="font-heading text-3xl md:text-4xl text-brand-onyx tracking-[2px] mb-2">Jasmine Hernandez</p>
             <p className="font-body font-light text-[11px] uppercase tracking-[3px] text-brand-champagne mb-8">Founder & Creative Director</p>
             <div className="space-y-4 font-body font-light text-sm text-muted-foreground leading-[1.8]">
-              <p>
-                Arch & Petal Co. was born from a lifelong passion for design, beauty, and the power of celebration. Growing up in the Bay Area, Jasmine was surrounded by the region's incredible blend of natural beauty and creative energy — a combination that deeply shaped her aesthetic vision.
-              </p>
-              <p>
-                After years of styling events for friends and family, Jasmine turned her passion into a business with one clear mission: to elevate every event into an unforgettable experience. She believes that the right backdrop doesn't just decorate a space — it transforms the entire feeling of a celebration.
-              </p>
-              <p>
-                Today, Arch & Petal Co. serves clients across the Bay Area and Sacramento, bringing a boutique, hands-on approach to every project. From intimate baby showers to large-scale brand activations, Jasmine and her team pour creativity and care into every detail.
-              </p>
-              <p>
-                When she's not designing installations, you can find Jasmine exploring local flower markets, experimenting with new color palettes, or dreaming up the next big design.
-              </p>
+              <p>Arch & Petal Co. was born from a lifelong passion for design, beauty, and the power of celebration. Growing up in the Bay Area, Jasmine was surrounded by the region's incredible blend of natural beauty and creative energy — a combination that deeply shaped her aesthetic vision.</p>
+              <p>After years of styling events for friends and family, Jasmine turned her passion into a business with one clear mission: to elevate every event into an unforgettable experience. She believes that the right backdrop doesn't just decorate a space — it transforms the entire feeling of a celebration.</p>
+              <p>Today, Arch & Petal Co. serves clients across the Bay Area and Sacramento, bringing a boutique, hands-on approach to every project. From intimate baby showers to large-scale brand activations, Jasmine and her team pour creativity and care into every detail.</p>
+              <p>When she's not designing installations, you can find Jasmine exploring local flower markets, experimenting with new color palettes, or dreaming up the next big design.</p>
             </div>
           </div>
         </ScrollReveal>
       </div>
     </section>
 
-    {/* Values */}
     <section className="bg-brand-ivory py-20 md:py-28 px-6">
       <div className="max-w-5xl mx-auto">
         <ScrollReveal>
