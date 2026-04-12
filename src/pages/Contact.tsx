@@ -125,8 +125,8 @@ const ContactPage = () => {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
               />
-              <Button type="submit" size="lg" className="w-full md:w-auto">
-                Send Inquiry
+              <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Inquiry"}
               </Button>
             </form>
           </ScrollReveal>
