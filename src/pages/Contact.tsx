@@ -3,6 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 const eventTypes = [
   "Baby Shower",
@@ -16,6 +19,8 @@ const eventTypes = [
 ];
 
 const ContactPage = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -25,10 +30,27 @@ const ContactPage = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder submit
-    alert("Thank you! We'll be in touch soon.");
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim() || null,
+        event_type: form.eventType,
+        event_date: form.eventDate || null,
+        message: form.message.trim(),
+      });
+      if (error) throw error;
+      toast({ title: "Inquiry Sent!", description: "Thank you! We'll be in touch within 24 hours." });
+      setForm({ name: "", email: "", phone: "", eventType: "", eventDate: "", message: "" });
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast({ title: "Something went wrong", description: "Please try again or email us directly.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass =
@@ -36,6 +58,7 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen">
+      <Toaster />
       <Navbar />
 
       <section className="bg-brand-warm-white pt-32 pb-16 md:pt-40 md:pb-20">
@@ -103,8 +126,8 @@ const ContactPage = () => {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
               />
-              <Button type="submit" size="lg" className="w-full md:w-auto">
-                Send Inquiry
+              <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Inquiry"}
               </Button>
             </form>
           </ScrollReveal>
