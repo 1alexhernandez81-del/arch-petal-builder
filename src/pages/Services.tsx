@@ -44,9 +44,13 @@ const services = [
   },
 ];
 
-const ServicesPage = () => (
-  <div className="min-h-screen">
-    <Navbar />
+const ServicesPage = () => {
+  useSEO({
+    title: "Event Styling Services | Arch & Petal Co.",
+    description: "Flower walls, floral arches, balloon backdrops, draped installations, and full event design. Custom event styling starting at $400 in the Bay Area and Sacramento.",
+  });
+
+  return (
 
     <section className="bg-brand-warm-white pt-32 pb-16 md:pt-40 md:pb-20">
       <div className="max-w-4xl mx-auto px-6 text-center">
