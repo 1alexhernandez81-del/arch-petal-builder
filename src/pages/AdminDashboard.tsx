@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
+import { ArrowLeft } from "lucide-react";
 import type { Tables } from "@/integrations/supabase/types";
 
 type Inquiry = Tables<"contact_submissions">;
@@ -43,12 +44,10 @@ const AdminDashboard = () => {
     const init = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) { navigate("/admin/login", { replace: true }); return; }
-
       const { data: isAdmin } = await supabase.rpc("has_role", {
         _user_id: session.user.id, _role: "admin",
       });
       if (!isAdmin) { navigate("/admin/login", { replace: true }); return; }
-
       setUserId(session.user.id);
       setLoading(false);
     };
@@ -61,8 +60,7 @@ const AdminDashboard = () => {
 
   const fetchNotes = async (inquiryId: string) => {
     const { data } = await supabase
-      .from("inquiry_notes")
-      .select("*")
+      .from("inquiry_notes").select("*")
       .eq("inquiry_id", inquiryId)
       .order("created_at", { ascending: true });
     setNotes(data || []);
@@ -111,7 +109,6 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-brand-ivory">
       <Toaster />
-      {/* Header */}
       <header className="bg-white border-b border-brand-beige px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="font-heading text-xl text-brand-onyx tracking-[3px]">INQUIRIES</h1>
@@ -123,9 +120,8 @@ const AdminDashboard = () => {
       </header>
 
       <div className="flex h-[calc(100vh-65px)]">
-        {/* Sidebar — Inquiry List */}
-        <div className="w-full md:w-[380px] border-r border-brand-beige bg-white overflow-y-auto">
-          {/* Filters */}
+        {/* Sidebar — hidden on mobile when detail is selected */}
+        <div className={`w-full md:w-[380px] border-r border-brand-beige bg-white overflow-y-auto ${selectedId ? "hidden md:block" : ""}`}>
           <div className="p-4 border-b border-brand-beige flex gap-2 flex-wrap">
             {["all", ...STATUS_OPTIONS].map((s) => (
               <button
@@ -141,7 +137,6 @@ const AdminDashboard = () => {
               </button>
             ))}
           </div>
-
           {inquiries.length === 0 ? (
             <p className="p-6 font-body text-sm text-brand-taupe text-center">No inquiries yet.</p>
           ) : (
@@ -173,20 +168,27 @@ const AdminDashboard = () => {
           )}
         </div>
 
-        {/* Detail Panel */}
-        <div className="hidden md:flex flex-1 flex-col overflow-y-auto">
+        {/* Detail Panel — full width on mobile when selected */}
+        <div className={`flex-1 flex-col overflow-y-auto ${selectedId ? "flex" : "hidden md:flex"}`}>
           {!selected ? (
             <div className="flex-1 flex items-center justify-center">
               <p className="font-body text-sm text-brand-taupe">Select an inquiry to view details</p>
             </div>
           ) : (
-            <div className="flex-1 p-8">
+            <div className="flex-1 p-6 md:p-8">
               <div className="max-w-2xl">
-                {/* Header */}
+                {/* Back button — mobile only */}
+                <button
+                  onClick={() => setSelectedId(null)}
+                  className="md:hidden flex items-center gap-1.5 font-body text-xs text-brand-taupe mb-6 hover:text-brand-onyx transition-colors"
+                >
+                  <ArrowLeft className="w-4 h-4" /> Back to inquiries
+                </button>
+
                 <div className="flex items-start justify-between mb-8">
                   <div>
                     <h2 className="font-heading text-2xl text-brand-onyx tracking-[2px]">{selected.name}</h2>
-                    <div className="flex items-center gap-4 mt-2">
+                    <div className="flex flex-wrap items-center gap-4 mt-2">
                       <a href={`mailto:${selected.email}`} className="font-body text-sm text-brand-champagne hover:underline">{selected.email}</a>
                       {selected.phone && <span className="font-body text-sm text-brand-taupe">{selected.phone}</span>}
                     </div>
@@ -202,7 +204,6 @@ const AdminDashboard = () => {
                   </select>
                 </div>
 
-                {/* Details */}
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div>
                     <p className="font-body text-[10px] uppercase tracking-[2px] text-brand-champagne mb-1">Event Type</p>
@@ -222,7 +223,6 @@ const AdminDashboard = () => {
                   </div>
                 </div>
 
-                {/* Message */}
                 <div className="mb-10">
                   <p className="font-body text-[10px] uppercase tracking-[2px] text-brand-champagne mb-2">Message</p>
                   <p className="font-body text-sm text-brand-onyx leading-relaxed bg-brand-warm-white p-4">
@@ -230,7 +230,6 @@ const AdminDashboard = () => {
                   </p>
                 </div>
 
-                {/* Notes */}
                 <div>
                   <p className="font-body text-[10px] uppercase tracking-[2px] text-brand-champagne mb-4">Notes</p>
                   <div className="space-y-3 mb-4">
