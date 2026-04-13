@@ -72,6 +72,7 @@ const AboutPage = () => {
 
     <Footer />
   </div>
-);
+  );
+};
 
 export default AboutPage;
