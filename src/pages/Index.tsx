@@ -74,6 +74,30 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Arch & Petal Co.",
+            "description": "Boutique event styling company specializing in flower walls, floral arches, balloon backdrops, and custom event design.",
+            "url": "https://www.archandpetal.com",
+            "email": "hello@archandpetal.com",
+            "address": { "@type": "PostalAddress", "addressLocality": "San Francisco", "addressRegion": "CA", "addressCountry": "US" },
+            "areaServed": [
+              { "@type": "City", "name": "San Francisco" },
+              { "@type": "City", "name": "Sacramento" },
+              { "@type": "City", "name": "Oakland" },
+              { "@type": "City", "name": "San Jose" },
+            ],
+            "priceRange": "$$",
+            "openingHours": "Mo-Su 09:00-18:00",
+            "sameAs": ["https://www.instagram.com/archandpetal"],
+            "image": "https://www.archandpetal.com/og-image.jpg",
+          }),
+        }}
+      />
       <Navbar />
 
       {/* Hero */}
