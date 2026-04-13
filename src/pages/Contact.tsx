@@ -18,6 +18,16 @@ const eventTypes = [
   "Other",
 ];
 
+const serviceTypes = [
+  "Flower Wall",
+  "Balloon Arch",
+  "Balloon Garland",
+  "Backdrop Design",
+  "Table Centerpieces",
+  "Full Event Styling",
+  "Other",
+];
+
 const ContactPage = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,6 +36,7 @@ const ContactPage = () => {
     email: "",
     phone: "",
     eventType: "",
+    serviceType: "",
     eventDate: "",
     message: "",
   });
@@ -44,7 +55,7 @@ const ContactPage = () => {
       });
       if (error) throw error;
       toast({ title: "Inquiry Sent!", description: "Thank you! We'll be in touch within 24 hours." });
-      setForm({ name: "", email: "", phone: "", eventType: "", eventDate: "", message: "" });
+      setForm({ name: "", email: "", phone: "", eventType: "", serviceType: "", eventDate: "", message: "" });
     } catch (err) {
       console.error("Submit error:", err);
       toast({ title: "Something went wrong", description: "Please try again or email us directly.", variant: "destructive" });
@@ -108,6 +119,17 @@ const ContactPage = () => {
               >
                 <option value="" disabled>Event Type</option>
                 {eventTypes.map((t) => (
+                  <option key={t} value={t}>{t}</option>
+                ))}
+              </select>
+              <select
+                required
+                className={`${inputClass} appearance-none cursor-pointer`}
+                value={form.serviceType}
+                onChange={(e) => setForm({ ...form, serviceType: e.target.value })}
+              >
+                <option value="" disabled>Service Type</option>
+                {serviceTypes.map((t) => (
                   <option key={t} value={t}>{t}</option>
                 ))}
               </select>
