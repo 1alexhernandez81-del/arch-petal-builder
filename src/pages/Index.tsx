@@ -55,7 +55,7 @@ const Index = () => {
     description: "Premium flower walls, floral arches, balloon backdrops, and custom event styling for the Bay Area and Sacramento. Now booking 2026 events.",
   });
 
-
+  const goTo = useCallback((index: number) => {
     setFade(false);
     setTimeout(() => {
       setCurrentTestimonial(index);
