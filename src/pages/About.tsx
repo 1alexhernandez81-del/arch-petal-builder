@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-import founderImg from "@/assets/founder-portrait.jpg";
+const founderImg = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80&fit=crop";
 
 const values = [
   { title: "Elevated Design", desc: "Every detail is intentionally curated to create an experience that feels luxurious, polished, and uniquely yours." },
