@@ -3,30 +3,30 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-import flowerWallImg from "@/assets/service-flower-wall.jpg";
-import floralArchImg from "@/assets/service-floral-arch.jpg";
-import balloonImg from "@/assets/service-balloon.jpg";
-import drapedImg from "@/assets/service-draped.jpg";
-import customStylingImg from "@/assets/service-custom-styling.jpg";
-import fullDesignImg from "@/assets/service-full-design.jpg";
-import heroImg from "@/assets/hero-flower-wall.jpg";
-
 const categories = ["All", "Flower Walls", "Arches", "Backdrops", "Events"];
 
 const galleryItems = [
-  { id: 1, category: "Flower Walls", img: flowerWallImg, label: "Blush flower wall" },
-  { id: 2, category: "Arches", img: floralArchImg, label: "Garden arch installation" },
-  { id: 3, category: "Backdrops", img: balloonImg, label: "Balloon backdrop" },
-  { id: 4, category: "Events", img: fullDesignImg, label: "Full event design" },
-  { id: 5, category: "Flower Walls", img: heroImg, label: "Rose wall installation" },
-  { id: 6, category: "Arches", img: floralArchImg, label: "Ceremony arch" },
-  { id: 7, category: "Backdrops", img: drapedImg, label: "Draped backdrop" },
-  { id: 8, category: "Events", img: customStylingImg, label: "Baby shower styling" },
-  { id: 9, category: "Flower Walls", img: flowerWallImg, label: "White flower wall" },
-  { id: 10, category: "Arches", img: floralArchImg, label: "Boho arch" },
-  { id: 11, category: "Backdrops", img: balloonImg, label: "Shimmer backdrop" },
-  { id: 12, category: "Events", img: fullDesignImg, label: "Brand activation" },
+  { id: 1, category: "Flower Walls", img: "https://images.unsplash.com/photo-1561128290-006dc4827214?w=800&q=80&fit=crop", label: "Blush & White Rose Wall" },
+  { id: 2, category: "Flower Walls", img: "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=800&q=80&fit=crop", label: "Romantic Flower Wall Installation" },
+  { id: 3, category: "Flower Walls", img: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=800&q=80&fit=crop", label: "Garden Rose Backdrop" },
+  { id: 4, category: "Flower Walls", img: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=800&q=80&fit=crop", label: "Ivory Floral Wall" },
+  { id: 5, category: "Flower Walls", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=800&q=80&fit=crop", label: "Peony Wall Close-Up" },
+  { id: 6, category: "Arches", img: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80&fit=crop", label: "Classic Ceremony Arch" },
+  { id: 7, category: "Arches", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80&fit=crop", label: "Garden Arch with Greenery" },
+  { id: 8, category: "Arches", img: "https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=800&q=80&fit=crop", label: "Sunset Floral Arch" },
+  { id: 9, category: "Arches", img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80&fit=crop", label: "Draped Ceremony Arch" },
+  { id: 10, category: "Backdrops", img: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&fit=crop", label: "Organic Balloon Installation" },
+  { id: 11, category: "Backdrops", img: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=800&q=80&fit=crop", label: "Sheer Draped Backdrop" },
+  { id: 12, category: "Backdrops", img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80&fit=crop", label: "Celebration Backdrop" },
+  { id: 13, category: "Backdrops", img: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=800&q=80&fit=crop", label: "Dessert Table Backdrop" },
+  { id: 14, category: "Events", img: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&fit=crop", label: "Styled Baby Shower" },
+  { id: 15, category: "Events", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&fit=crop", label: "Grand Reception Design" },
+  { id: 16, category: "Events", img: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80&fit=crop", label: "Intimate Bridal Celebration" },
+  { id: 17, category: "Events", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&fit=crop", label: "Wedding Table Styling" },
+  { id: 18, category: "Events", img: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=80&fit=crop", label: "Birthday Party Setup" },
 ];
+
+const aspectRatios = ["3/4", "4/3", "1/1", "4/5", "3/4", "1/1", "4/3", "3/4", "1/1", "4/5", "3/4", "4/3", "1/1", "3/4", "4/3", "4/5", "1/1", "3/4"];
 
 const GalleryPage = () => {
   const [filter, setFilter] = useState("All");
@@ -74,7 +74,7 @@ const GalleryPage = () => {
                 >
                   <div
                     className="overflow-hidden"
-                    style={{ aspectRatio: item.id % 3 === 0 ? "3/4" : item.id % 3 === 1 ? "4/3" : "1/1" }}
+                    style={{ aspectRatio: aspectRatios[(item.id - 1) % aspectRatios.length] }}
                   >
                     <img
                       src={item.img}

@@ -7,8 +7,8 @@ const Footer = () => (
       <p className="font-heading text-white text-lg tracking-[6px] uppercase">ARCH & PETAL CO.</p>
       <div className="w-16 h-px bg-white/20 mx-auto" />
       <div className="flex flex-col gap-2 text-white/60 font-body text-[12px] tracking-[1px]">
-        <a href="mailto:hello@archandpetalco.com" className="hover:text-white/80 transition-colors">hello@archandpetalco.com</a>
-        <a href="https://instagram.com/archandpetalco" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">@archandpetalco</a>
+        <a href="mailto:hello@archandpetal.com" className="hover:text-white/80 transition-colors">hello@archandpetal.com</a>
+        <a href="https://instagram.com/archandpetal" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">@archandpetal</a>
       </div>
       <div className="mt-4 flex flex-col gap-1 text-white/40 font-body text-[10px] tracking-[2px] uppercase">
         <span>Bay Area & Sacramento</span>
