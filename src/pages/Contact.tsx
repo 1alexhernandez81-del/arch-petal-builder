@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
+import { useSEO } from "@/hooks/use-seo";
 
 const eventTypes = [
   "Baby Shower",
@@ -31,6 +32,10 @@ const serviceTypes = [
 const ContactPage = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  useSEO({
+    title: "Contact | Arch & Petal Co.",
+    description: "Get a quote for your next event. Flower walls, arches, and backdrops for baby showers, birthdays, weddings, and brand activations in the Bay Area and Sacramento.",
+  });
   const [form, setForm] = useState({
     name: "",
     email: "",

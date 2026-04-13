@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const Navbar = () => {
@@ -22,14 +23,15 @@ const Navbar = () => {
           <PrimaryWordmark className="w-48 md:w-56" />
         </Link>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               to={l.href}
               className={`font-body text-[11px] uppercase tracking-[2px] transition-colors duration-300 ${
-                location.pathname === l.href ? "text-brand-champagne" : "text-muted-foreground hover:text-brand-onyx"
+                location.pathname === l.href || (l.href === "/blog" && location.pathname.startsWith("/blog"))
+                  ? "text-brand-champagne"
+                  : "text-muted-foreground hover:text-brand-onyx"
               }`}
             >
               {l.label}
@@ -37,13 +39,11 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile toggle */}
         <button className="md:hidden text-brand-onyx" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-brand-ivory border-t border-brand-beige px-6 py-8 flex flex-col gap-6">
           {navLinks.map((l) => (

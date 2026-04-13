@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { TaglineWordmark } from "@/components/Logo";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/use-seo";
 
 const heroImg = "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=1920&q=80&fit=crop";
 
@@ -49,6 +50,11 @@ const Index = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [fade, setFade] = useState(true);
 
+  useSEO({
+    title: "Arch & Petal Co. | Boutique Event Styling | Bay Area & Sacramento",
+    description: "Premium flower walls, floral arches, balloon backdrops, and custom event styling for the Bay Area and Sacramento. Now booking 2026 events.",
+  });
+
   const goTo = useCallback((index: number) => {
     setFade(false);
     setTimeout(() => {
@@ -68,6 +74,30 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Arch & Petal Co.",
+            "description": "Boutique event styling company specializing in flower walls, floral arches, balloon backdrops, and custom event design.",
+            "url": "https://www.archandpetal.com",
+            "email": "hello@archandpetal.com",
+            "address": { "@type": "PostalAddress", "addressLocality": "San Francisco", "addressRegion": "CA", "addressCountry": "US" },
+            "areaServed": [
+              { "@type": "City", "name": "San Francisco" },
+              { "@type": "City", "name": "Sacramento" },
+              { "@type": "City", "name": "Oakland" },
+              { "@type": "City", "name": "San Jose" },
+            ],
+            "priceRange": "$$",
+            "openingHours": "Mo-Su 09:00-18:00",
+            "sameAs": ["https://www.instagram.com/archandpetal"],
+            "image": "https://www.archandpetal.com/og-image.jpg",
+          }),
+        }}
+      />
       <Navbar />
 
       {/* Hero */}

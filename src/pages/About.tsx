@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useSEO } from "@/hooks/use-seo";
 
 const founderImg = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80&fit=crop";
 
@@ -10,7 +11,13 @@ const values = [
   { title: "Unforgettable Moments", desc: "We design spaces that make people pause, take a breath, and remember the beauty of the moment." },
 ];
 
-const AboutPage = () => (
+const AboutPage = () => {
+  useSEO({
+    title: "About | Arch & Petal Co.",
+    description: "Meet Jasmine Hernandez, founder of Arch & Petal Co. Boutique event styling with a personal touch for the Bay Area and Sacramento.",
+  });
+
+  return (
   <div className="min-h-screen">
     <Navbar />
 
@@ -65,6 +72,7 @@ const AboutPage = () => (
 
     <Footer />
   </div>
-);
+  );
+};
 
 export default AboutPage;

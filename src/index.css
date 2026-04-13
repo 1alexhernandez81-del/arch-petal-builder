@@ -90,3 +90,20 @@
   animation: fade-in-up 0.7s ease-out forwards;
   opacity: 0;
 }
+
+/* Blog article typography */
+.prose-custom h2 {
+  @apply font-heading text-2xl tracking-[2px] text-brand-onyx mt-10 mb-4;
+}
+
+.prose-custom h3 {
+  @apply font-heading text-xl tracking-[1px] text-brand-onyx mt-8 mb-3;
+}
+
+.prose-custom p {
+  @apply font-body font-light text-sm md:text-base text-muted-foreground leading-[1.8] mb-4;
+}
+
+.prose-custom strong {
+  @apply font-body font-medium text-brand-onyx;
+}
