@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
-import {
+import { useSEO } from "@/hooks/use-seo";
   Accordion,
   AccordionContent,
   AccordionItem,
