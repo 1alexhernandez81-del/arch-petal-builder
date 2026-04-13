@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { TaglineWordmark } from "@/components/Logo";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/use-seo";
 
 const heroImg = "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=1920&q=80&fit=crop";
 
