@@ -51,52 +51,54 @@ const ServicesPage = () => {
   });
 
   return (
+    <div className="min-h-screen">
+      <Navbar />
 
-    <section className="bg-brand-warm-white pt-32 pb-16 md:pt-40 md:pb-20">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <ScrollReveal>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-brand-onyx tracking-[4px] mb-4">Our Services</h1>
-          <p className="font-body font-light text-sm text-muted-foreground">Crafted with intention. Designed to inspire.</p>
-        </ScrollReveal>
-      </div>
-    </section>
-
-    {services.map((s, i) => (
-      <section key={s.name} className={`${i % 2 === 0 ? "bg-white" : "bg-brand-ivory"} py-20 md:py-28 px-6`}>
-        <div className={`max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center ${i % 2 !== 0 ? "md:[direction:rtl]" : ""}`}>
-          <ScrollReveal className={i % 2 !== 0 ? "md:[direction:ltr]" : ""}>
-            <div className="aspect-[3/4] overflow-hidden">
-              <img src={s.img} alt={`${s.name} installation`} loading="lazy" className="w-full h-full object-cover" />
-            </div>
-          </ScrollReveal>
-          <ScrollReveal className={i % 2 !== 0 ? "md:[direction:ltr]" : ""}>
-            <div>
-              <h2 className="font-heading text-2xl md:text-3xl text-brand-onyx tracking-[3px] mb-6">{s.name}</h2>
-              <p className="font-body font-light text-sm text-muted-foreground leading-[1.8] mb-8">{s.desc}</p>
-              <p className="font-body text-[11px] uppercase tracking-[3px] text-brand-champagne mb-8">Starting at {s.price}</p>
-              <Link to="/contact">
-                <Button variant="outline" size="sm">Inquire</Button>
-              </Link>
-            </div>
+      <section className="bg-brand-warm-white pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <ScrollReveal>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-brand-onyx tracking-[4px] mb-4">Our Services</h1>
+            <p className="font-body font-light text-sm text-muted-foreground">Crafted with intention. Designed to inspire.</p>
           </ScrollReveal>
         </div>
       </section>
-    ))}
 
-    <section className="bg-brand-warm-white py-20 md:py-28 px-6">
-      <div className="max-w-3xl mx-auto text-center">
-        <ScrollReveal>
-          <h2 className="font-heading text-3xl md:text-4xl text-brand-onyx mb-4">Ready to Get Started?</h2>
-          <p className="font-body font-light text-sm text-muted-foreground mb-10">Let's design something unforgettable together.</p>
-          <Link to="/contact">
-            <Button size="lg">Book a Consultation</Button>
-          </Link>
-        </ScrollReveal>
-      </div>
-    </section>
+      {services.map((s, i) => (
+        <section key={s.name} className={`${i % 2 === 0 ? "bg-white" : "bg-brand-ivory"} py-20 md:py-28 px-6`}>
+          <div className={`max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center ${i % 2 !== 0 ? "md:[direction:rtl]" : ""}`}>
+            <ScrollReveal className={i % 2 !== 0 ? "md:[direction:ltr]" : ""}>
+              <div className="aspect-[3/4] overflow-hidden">
+                <img src={s.img} alt={`${s.name} installation`} loading="lazy" className="w-full h-full object-cover" />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className={i % 2 !== 0 ? "md:[direction:ltr]" : ""}>
+              <div>
+                <h2 className="font-heading text-2xl md:text-3xl text-brand-onyx tracking-[3px] mb-6">{s.name}</h2>
+                <p className="font-body font-light text-sm text-muted-foreground leading-[1.8] mb-8">{s.desc}</p>
+                <p className="font-body text-[11px] uppercase tracking-[3px] text-brand-champagne mb-8">Starting at {s.price}</p>
+                <Link to="/contact">
+                  <Button variant="outline" size="sm">Inquire</Button>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      ))}
 
-    <Footer />
-  </div>
+      <section className="bg-brand-warm-white py-20 md:py-28 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal>
+            <h2 className="font-heading text-3xl md:text-4xl text-brand-onyx mb-4">Ready to Get Started?</h2>
+            <p className="font-body font-light text-sm text-muted-foreground mb-10">Let's design something unforgettable together.</p>
+            <Link to="/contact">
+              <Button size="lg">Book a Consultation</Button>
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
   );
 };
 

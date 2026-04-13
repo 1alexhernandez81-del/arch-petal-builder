@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useSEO } from "@/hooks/use-seo";
 
 const categories = ["All", "Flower Walls", "Arches", "Backdrops", "Events"];
 
@@ -31,9 +32,12 @@ const aspectRatios = ["3/4", "4/3", "1/1", "4/5", "3/4", "1/1", "4/3", "3/4", "1
 const GalleryPage = () => {
   const [filter, setFilter] = useState("All");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  useSEO({
+    title: "Gallery | Arch & Petal Co.",
+    description: "Browse our portfolio of flower walls, floral arches, balloon backdrops, and styled events across the San Francisco Bay Area and Sacramento.",
+  });
 
   const filtered = filter === "All" ? galleryItems : galleryItems.filter((g) => g.category === filter);
-
   return (
     <div className="min-h-screen">
       <Navbar />
