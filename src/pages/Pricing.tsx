@@ -86,7 +86,13 @@ const faqs = [
   { q: "Do you handle setup and breakdown?", a: "Yes. Every booking includes delivery, full professional setup, and breakdown after your event. You do not need to do anything." },
 ];
 
-const PricingPage = () => (
+const PricingPage = () => {
+  useSEO({
+    title: "Pricing & Packages | Arch & Petal Co.",
+    description: "Event styling packages starting at $600. Includes delivery, setup, and breakdown. Flower walls, arches, and balloon backdrops for Bay Area and Sacramento events.",
+  });
+
+  return (
   <div className="min-h-screen">
     <Navbar />
 
