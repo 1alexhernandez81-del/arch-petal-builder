@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/use-seo";
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -248,6 +249,7 @@ const PricingPage = () => {
 
     <Footer />
   </div>
-);
+  );
+};
 
 export default PricingPage;
