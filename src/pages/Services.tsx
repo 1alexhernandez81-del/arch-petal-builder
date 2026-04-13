@@ -97,6 +97,7 @@ const ServicesPage = () => {
 
     <Footer />
   </div>
-);
+  );
+};
 
 export default ServicesPage;

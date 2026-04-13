@@ -11,7 +11,13 @@ const values = [
   { title: "Unforgettable Moments", desc: "We design spaces that make people pause, take a breath, and remember the beauty of the moment." },
 ];
 
-const AboutPage = () => (
+const AboutPage = () => {
+  useSEO({
+    title: "About | Arch & Petal Co.",
+    description: "Meet Jasmine Hernandez, founder of Arch & Petal Co. Boutique event styling with a personal touch for the Bay Area and Sacramento.",
+  });
+
+  return (
   <div className="min-h-screen">
     <Navbar />
 
