@@ -50,7 +50,12 @@ const Index = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [fade, setFade] = useState(true);
 
-  const goTo = useCallback((index: number) => {
+  useSEO({
+    title: "Arch & Petal Co. | Boutique Event Styling | Bay Area & Sacramento",
+    description: "Premium flower walls, floral arches, balloon backdrops, and custom event styling for the Bay Area and Sacramento. Now booking 2026 events.",
+  });
+
+
     setFade(false);
     setTimeout(() => {
       setCurrentTestimonial(index);
