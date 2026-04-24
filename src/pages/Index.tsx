@@ -6,16 +6,21 @@ import { TaglineWordmark } from "@/components/Logo";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/use-seo";
-
-const heroImg = "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=1920&q=80&fit=crop";
+import heroImg from "@/assets/hero.jpg";
+import flowerWallImg from "@/assets/flower-wall.jpg";
+import floralArchImg from "@/assets/floral-arch.jpg";
+import balloonImg from "@/assets/balloon-backdrop.jpg";
+import drapedImg from "@/assets/draped-backdrop.jpg";
+import stylingImg from "@/assets/event-styling.jpg";
+import fullDesignImg from "@/assets/full-design.jpg";
 
 const services = [
-  { name: "Flower Walls", desc: "Lush, statement-making flower walls designed to transform any space into a botanical wonderland.", img: "https://images.unsplash.com/photo-1561128290-006dc4827214?w=800&q=80&fit=crop&crop=center" },
-  { name: "Floral Arches", desc: "Stunning arched installations that frame your most important moments with natural beauty.", img: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80&fit=crop&crop=center" },
-  { name: "Balloon Backdrops", desc: "Modern, sculptural balloon installations crafted with an elevated aesthetic.", img: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&fit=crop&crop=center" },
-  { name: "Draped Backdrops", desc: "Flowing fabric installations that add softness, movement, and romance to any event.", img: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=800&q=80&fit=crop&crop=center" },
-  { name: "Custom Event Styling", desc: "Bespoke styling packages tailored to your unique vision and celebration.", img: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&fit=crop&crop=center" },
-  { name: "Full Event Design", desc: "Comprehensive design direction from concept to installation for a cohesive experience.", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&fit=crop&crop=center" },
+  { name: "Flower Walls", desc: "Lush, statement-making flower walls designed to transform any space into a botanical wonderland.", img: flowerWallImg },
+  { name: "Floral Arches", desc: "Stunning arched installations that frame your most important moments with natural beauty.", img: floralArchImg },
+  { name: "Balloon Backdrops", desc: "Modern, sculptural balloon installations crafted with an elevated aesthetic.", img: balloonImg },
+  { name: "Draped Backdrops", desc: "Flowing fabric installations that add softness, movement, and romance to any event.", img: drapedImg },
+  { name: "Custom Event Styling", desc: "Bespoke styling packages tailored to your unique vision and celebration.", img: stylingImg },
+  { name: "Full Event Design", desc: "Comprehensive design direction from concept to installation for a cohesive experience.", img: fullDesignImg },
 ];
 
 const testimonials = [

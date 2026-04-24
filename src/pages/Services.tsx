@@ -4,42 +4,48 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/use-seo";
+import flowerWallImg from "@/assets/flower-wall.jpg";
+import floralArchImg from "@/assets/floral-arch.jpg";
+import balloonImg from "@/assets/balloon-backdrop.jpg";
+import drapedImg from "@/assets/draped-backdrop.jpg";
+import stylingImg from "@/assets/event-styling.jpg";
+import fullDesignImg from "@/assets/full-design.jpg";
 
 const services = [
   {
     name: "Flower Walls",
     desc: "Our signature flower walls are meticulously crafted to create a breathtaking focal point for any event. From lush romantic blooms to modern minimalist arrangements, each wall is designed to complement your event's aesthetic perfectly. We work with premium silk and preserved florals to ensure every petal looks flawless throughout your celebration.",
-    img: "https://images.unsplash.com/photo-1561128290-006dc4827214?w=800&q=80&fit=crop",
+    img: flowerWallImg,
     price: "$500",
   },
   {
     name: "Floral Arches",
     desc: "Frame your most meaningful moments with one of our stunning floral arch installations. Whether it's a wedding ceremony, proposal backdrop, or event entrance, our arches combine structural elegance with botanical artistry. Available in half-moon, circular, triangular, and custom shapes to match your vision.",
-    img: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80&fit=crop",
+    img: floralArchImg,
     price: "$450",
   },
   {
     name: "Balloon Backdrops",
     desc: "Elevated balloon artistry that goes far beyond the ordinary. Our sculptural balloon installations feature organic compositions, color-matched palettes, and modern design sensibility. Perfect for birthdays, baby showers, brand activations, and milestone celebrations that deserve a showstopping backdrop.",
-    img: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&fit=crop",
+    img: balloonImg,
     price: "$400",
   },
   {
     name: "Draped Backdrops",
     desc: "Flowing fabric installations that add romance, depth, and movement to any space. Our draped backdrops use premium fabrics in custom colors, layered with greenery, florals, or lighting to create an ethereal atmosphere. Ideal for ceremonies, sweetheart tables, and photo opportunities.",
-    img: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=800&q=80&fit=crop",
+    img: drapedImg,
     price: "$450",
   },
   {
     name: "Custom Event Styling",
     desc: "Every celebration is unique, and our custom styling packages are designed to bring your personal vision to life. From concept development to on-site installation, we handle every detail — centerpieces, signage, welcome areas, dessert displays, and more — ensuring a cohesive and elevated look throughout.",
-    img: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&fit=crop",
+    img: stylingImg,
     price: "$1,000",
   },
   {
     name: "Full Event Design",
     desc: "Our comprehensive event design service covers everything from the initial creative direction to full day-of installation and styling. We collaborate closely with you and your vendors to create a seamless, magazine-worthy experience that reflects your story and style from first glance to last dance.",
-    img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&fit=crop",
+    img: fullDesignImg,
     price: "$2,000",
   },
 ];
